@@ -42,7 +42,7 @@
 
 ## Live link
 
-- [Video Player]()
+- [Video Player](https://js-assig-2-project-video-player.netlify.app/)
 
 ---
 
