@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <!-- font awesome link -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google fonts links for icon -->
+    
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+
+    <!-- tailwind link -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
+    <title>VideoPlayer</title>
+</head>
+<body class="flex flex-row justify-center items-center h-[100vh] bg-[url(./pics/wp2001661-sage-of-the-six-paths-wallpapers.jpg)] bg-cover bg-center " >
+
+
+
+
+<section class="videoPlayer w-[60rem] bg-black overflow-hidden relative ">
+
+    <div class="wrapper  absolute left-0 right-0 bottom-0   ease  z-[1] before:content-[''] before:absolute before:w-[100%] before:bg-gradient-to-t before:from-[rgba(0,0,0,.7)] before:to-transparent  before:bottom-0 before:z-[-1] before:h-[10rem]">
+
+    <div class="timetracker h-[0.5rem] w-[100%]">
+
+    <div class="progress h-[0.2rem] bg-slate-500/50 relative  cursor-pointer  group ">
+        <span class=" videoCurrentTime hidden group-hover:block text-slate-300 text-center absolute left-[0%] top-[-2.1rem] translate-x-[-50%] " >00:00</span>
+
+        <div class="progressBar  before:hidden  before:group-hover:block  h-[100%] w-[0%] bg-red-600  relative  before:content-['\01F525']  before:absolute before:right-0 before:bg-none before:top-[50%] before:translate-y-[-60%] before:translate-x-[50%] cursor-pointer"></div>   
+    </div>
+
+</div>
+
+<div class="videoNavigation flex flex-row justify-between items-center mx-[1rem] p-4 ">
+
+    <div class="leftPanel  flex flex-row justify-center items-center space-x-[0.7rem] ">
+
+<!-- play Button -->
+<button class="playButton text-white" title="togglePlay" onclick="playPause()">
+     <i class="fa-solid fa-play pointer-events-none"></i>
+  </button>
+
+   <!-- Skip Buttons -->
+  <button data-skip="-10" class="backward" onclick=" skipBackward()" >
+    <i class="fa-solid fa-rotate-left pointer-events-none text-white"  ></i>
+  </button>
+
+  <button data-skip="10" class="forward" onclick="skipForward()">
+    <i class="fa-solid fa-rotate-right pointer-events-none text-white"></i>
+  </button>
+ 
+  <!-- volume Silder -->
+  <div class=" flex flex-row items-center justify-center space-x-[0.5rem] pl-[1rem] cursor-pointer " >
+    <i class="volumeBtn fa-solid fa-volume-high text-white text-center"></i>
+  <input type="range" name="volume" class="volumeSlider w-[4rem] h-[4px] text-center " min="0" max = "100" step="10" value="1" onchange="volumeSeeker()" onmousemove="volumeSeeker()">
+</div>
+  
+  <!-- to show time elapsed 00:00 / 00:00 -->
+
+  <div class="videoTimer flex flex-row justify-center items-center space-x-[0.3rem] text-center   ">
+    <p class="videoCurrentTime text-slate-300 text-center" >00:00</p>
+    <p class="seperater text-slate-300 text-center">/</p>
+    <p class="videoTotalDuration text-slate-300 text-center">00:00</p>
+  </div>
+
+</div>
+
+<div class="rightPanel flex flex-row justify-center items-center space-x-[1.5rem]">
+
+    <button class="pic-in-pic flex flex-row justify-center items-center" onclick="picInPicScreen()" >
+        <span class="material-icons picInPic text-white pointer-events-none">
+            picture_in_picture
+            </span>
+    </button>
+
+    <button class="fullscreenBtn" onclick="fullScreenToggle()" >
+        <i class=" fullscreenBtnI fa-solid fa-expand pointer-events-none text-white text-[1.25rem] relative top-[0.07rem] "></i>
+    </button>
+
+</div>
+
+  <!-- video  slider -->
+  <!-- <input type="range" name="playerSlider" class="playerSlider w-[35rem] hidden " min="0" max="100" step="0.05" value="1"  onchange="videoSlider()" > -->
+
+</div>
+
+
+</div>
+
+    <video src="./videos/Naruto.mp4"  class="video" onclick="playPause()"  onloadstart="VolumeThumbPlace()"  ></video>
+
+
+    
+
+</section>
+
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
